@@ -294,15 +294,15 @@ The model supports disease and healthy classes across:
 
 &#x20;                              │
 
-&#x20;                 ┌────────────┴────────────┐
+&#x20;                ┌─────────────┴─────────────┐
 
-&#x20;                 ▼                         ▼
+&#x20;                ▼                           ▼
 
-&#x20;       ┌──────────────────┐      ┌──────────────────┐
+&#x20;      ┌──────────────────┐        ┌──────────────────┐
 
-&#x20;       │ Crop Advisory    │      │ OpenWeather API  │
+&#x20;      │ Crop Advisory    │        │ OpenWeather API  │
 
-&#x20;       └──────────────────┘      └──────────────────┘
+&#x20;      └──────────────────┘        └──────────────────┘
 
 ```
 
@@ -482,7 +482,7 @@ cd backend
 
 
 
-Create a virtual environment:
+Create a virtual environment.
 
 
 
@@ -566,15 +566,7 @@ npm install
 
 
 
-Create a local `.env` file:
-
-
-
-```text
-
-.env
-
-```
+Create a local `.env` file.
 
 
 
