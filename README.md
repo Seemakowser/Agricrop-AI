@@ -276,7 +276,7 @@ The model supports disease and healthy classes across:
 
 &#x20;                   │    MobileNetV2       │
 
-&#x20;                   │   38-Class Model      │
+&#x20;                   │    38-Class Model    │
 
 &#x20;                   └──────────┬───────────┘
 
