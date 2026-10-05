@@ -10,113 +10,121 @@ Users can upload a plant image, select their crop and farm location, and receive
 
 
 
+\---
+
+
+
 \## ✨ Features
 
 
 
-\- 🌿 \*\*Plant Disease Detection\*\*
+\### 🌿 Plant Disease Detection
 
 
 
-&#x20; - Deep-learning image classification using MobileNetV2
+\- Deep-learning image classification using MobileNetV2
 
-&#x20; - 38 PlantVillage disease/healthy classes
+\- 38 PlantVillage disease/healthy classes
 
-&#x20; - Top-3 model predictions with confidence scores
+\- Top-3 model predictions with confidence scores
 
 
 
-\- 🩺 \*\*Plant Health Assessment\*\*
+\### 🩺 Plant Health Assessment
 
 
 
-&#x20; - Disease/status classification
+\- Disease/status classification
 
-&#x20; - Severity assessment
+\- Severity assessment
 
-&#x20; - Spread-risk assessment
+\- Spread-risk assessment
 
-&#x20; - Recommended action
+\- Recommended action
 
 
 
-\- 💊 \*\*Agricultural Recommendations\*\*
+\### 💊 Agricultural Recommendations
 
 
 
-&#x20; - Treatment guidance
+\- Treatment guidance
 
-&#x20; - Fertilizer recommendations
+\- Fertilizer recommendations
 
-&#x20; - Watering guidance
+\- Watering guidance
 
-&#x20; - Disease-prevention suggestions
+\- Disease-prevention suggestions
 
 
 
-\- 🌤 \*\*Weather-Based Advisory\*\*
+\### 🌤 Weather-Based Advisory
 
 
 
-&#x20; - OpenWeather API integration
+\- OpenWeather API integration
 
-&#x20; - Current temperature and humidity
+\- Current temperature and humidity
 
-&#x20; - Weather-aware farming recommendations
+\- Weather-aware farming recommendations
 
 
 
-\- 🌾 \*\*Crop Advisory\*\*
+\### 🌾 Crop Advisory
 
 
 
-&#x20; - Growing season
+\- Growing season
 
-&#x20; - Soil requirements
+\- Soil requirements
 
-&#x20; - Water requirements
+\- Water requirements
 
-&#x20; - Approximate harvest period
+\- Approximate harvest period
 
 
 
-\- 📊 \*\*Analysis Dashboard\*\*
+\### 📊 Analysis Dashboard
 
 
 
-&#x20; - AI confidence score
+\- AI confidence score
 
-&#x20; - Detected crop
+\- Detected crop
 
-&#x20; - Disease status
+\- Disease status
 
-&#x20; - Severity and spread risk
+\- Severity and spread risk
 
-&#x20; - Alternative predictions
+\- Alternative predictions
 
 
 
-\- 📄 \*\*PDF Reports\*\*
+\### 📄 PDF Reports
 
 
 
-&#x20; - Downloadable AI analysis report
+\- Downloadable AI analysis report
 
 
 
-\- 📜 \*\*Analysis History\*\*
+\### 📜 Analysis History
 
 
 
-&#x20; - Keeps recent analyses during the current session
+\- Keeps recent analyses during the current session
 
 
 
-\- ⚠️ \*\*Model Limitation Awareness\*\*
+\### ⚠️ Model Limitation Awareness
 
 
 
-&#x20; - The application communicates that field conditions and plant damage outside the training distribution may not be reliably classified.
+\- Communicates that field conditions and plant damage outside the training distribution may not be reliably classified.
+
+
+
+\---
 
 
 
@@ -128,31 +136,31 @@ The disease classifier was trained using the \*\*PlantVillage dataset\*\* and tr
 
 
 
-\### Model configuration
+\### Model Configuration
 
 
 
-| Parameter           | Value       |
+| Parameter | Value |
 
-| ------------------- | ----------- |
+|---|---|
 
-| Architecture        | MobileNetV2 |
+| Architecture | MobileNetV2 |
 
-| Input size          | 224 × 224   |
+| Input Size | 224 × 224 |
 
-| Classes             | 38          |
+| Classes | 38 |
 
-| Transfer learning   | ImageNet    |
+| Transfer Learning | ImageNet |
 
-| Data augmentation   | Yes         |
+| Data Augmentation | Yes |
 
-| Validation split    | 20%         |
+| Validation Split | 20% |
 
-| Training epochs     | 10          |
+| Training Epochs | 10 |
 
-| Training accuracy   | 94.54%      |
+| Training Accuracy | 94.54% |
 
-| Validation accuracy | 94.32%      |
+| Validation Accuracy | 94.32% |
 
 
 
@@ -180,11 +188,11 @@ models/class\_names.txt
 
 
 
-\### Supported classification
+\### Supported Crops
 
 
 
-The model supports disease and healthy classes across crops including:
+The model supports disease and healthy classes across:
 
 
 
@@ -218,81 +226,89 @@ The model supports disease and healthy classes across crops including:
 
 
 
-\## 🏗 Architecture
+\---
+
+
+
+\## 🏗 System Architecture
 
 
 
 ```text
 
-&#x20;                ┌──────────────────────┐
+&#x20;                   ┌──────────────────────┐
 
-&#x20;                │      User Image      │
+&#x20;                   │      User Image      │
 
-&#x20;                └──────────┬───────────┘
+&#x20;                   └──────────┬───────────┘
 
-&#x20;                           │
+&#x20;                              │
 
-&#x20;                           ▼
+&#x20;                              ▼
 
-&#x20;                ┌──────────────────────┐
+&#x20;                   ┌──────────────────────┐
 
-&#x20;                │   React Frontend     │
+&#x20;                   │   React Frontend     │
 
-&#x20;                │   CropCare AI UI     │
+&#x20;                   │     CropCare AI       │
 
-&#x20;                └──────────┬───────────┘
+&#x20;                   └──────────┬───────────┘
 
-&#x20;                           │
+&#x20;                              │
 
-&#x20;                           │ HTTP / multipart
+&#x20;                              │ HTTP / multipart
 
-&#x20;                           ▼
+&#x20;                              ▼
 
-&#x20;                ┌──────────────────────┐
+&#x20;                   ┌──────────────────────┐
 
-&#x20;                │     FastAPI API      │
+&#x20;                   │     FastAPI API      │
 
-&#x20;                │      /predict        │
+&#x20;                   │       /predict       │
 
-&#x20;                └──────────┬───────────┘
+&#x20;                   └──────────┬───────────┘
 
-&#x20;                           │
+&#x20;                              │
 
-&#x20;                           ▼
+&#x20;                              ▼
 
-&#x20;                ┌──────────────────────┐
+&#x20;                   ┌──────────────────────┐
 
-&#x20;                │   MobileNetV2 Model  │
+&#x20;                   │    MobileNetV2       │
 
-&#x20;                │   38-class classifier │
+&#x20;                   │   38-Class Model      │
 
-&#x20;                └──────────┬───────────┘
+&#x20;                   └──────────┬───────────┘
 
-&#x20;                           │
+&#x20;                              │
 
-&#x20;                           ▼
+&#x20;                              ▼
 
-&#x20;                ┌──────────────────────┐
+&#x20;                   ┌──────────────────────┐
 
-&#x20;                │ Disease + Confidence │
+&#x20;                   │ Disease + Confidence │
 
-&#x20;                │ Severity + Advisory  │
+&#x20;                   │ Severity + Advisory  │
 
-&#x20;                └──────────┬───────────┘
+&#x20;                   └──────────┬───────────┘
 
-&#x20;                           │
+&#x20;                              │
 
-&#x20;               ┌───────────┴───────────┐
+&#x20;                 ┌────────────┴────────────┐
 
-&#x20;               ▼                       ▼
+&#x20;                 ▼                         ▼
 
-&#x20;      ┌─────────────────┐     ┌─────────────────┐
+&#x20;       ┌──────────────────┐      ┌──────────────────┐
 
-&#x20;      │ Crop Advisory   │     │ OpenWeather API │
+&#x20;       │ Crop Advisory    │      │ OpenWeather API  │
 
-&#x20;      └─────────────────┘     └─────────────────┘
+&#x20;       └──────────────────┘      └──────────────────┘
 
 ```
+
+
+
+\---
 
 
 
@@ -360,6 +376,10 @@ The model supports disease and healthy classes across crops including:
 
 
 
+\---
+
+
+
 \## 📁 Project Structure
 
 
@@ -420,11 +440,15 @@ Agricrop-AI/
 
 
 
+\---
+
+
+
 \## 🚀 Running Locally
 
 
 
-\### 1. Clone the repository
+\### 1. Clone the Repository
 
 
 
@@ -442,7 +466,7 @@ Replace `YOUR\_USERNAME` with your GitHub username.
 
 
 
-\### 2. Backend setup
+\### 2. Backend Setup
 
 
 
@@ -458,7 +482,7 @@ cd backend
 
 
 
-Create and activate a virtual environment.
+Create a virtual environment:
 
 
 
@@ -524,7 +548,7 @@ http://127.0.0.1:8000/docs
 
 
 
-\### 3. Frontend setup
+\### 3. Frontend Setup
 
 
 
@@ -542,7 +566,7 @@ npm install
 
 
 
-Create your local environment file:
+Create a local `.env` file:
 
 
 
@@ -568,7 +592,7 @@ VITE\_API\_BASE\_URL=http://127.0.0.1:8000
 
 
 
-Then start the frontend:
+Start the frontend:
 
 
 
@@ -589,6 +613,10 @@ Open the local Vite URL shown in the terminal, normally:
 http://localhost:5173
 
 ```
+
+
+
+\---
 
 
 
@@ -614,7 +642,11 @@ VITE\_API\_BASE\_URL=http://127.0.0.1:8000
 
 
 
-Never commit a real API key to the repository.
+\*\*Never commit a real API key to the repository.\*\*
+
+
+
+\---
 
 
 
@@ -650,11 +682,15 @@ Therefore, a high softmax confidence does \*\*not necessarily guarantee correct 
 
 
 
-CropCare AI communicates this limitation in the application instead of presenting every prediction as a guaranteed diagnosis.
+CropCare AI communicates this limitation instead of presenting every prediction as a guaranteed diagnosis.
 
 
 
 The application is intended as an \*\*agricultural assistance and screening tool\*\*, not a replacement for professional agricultural diagnosis.
+
+
+
+\---
 
 
 
@@ -686,11 +722,15 @@ Potential future improvements include:
 
 
 
+\---
+
+
+
 \## 📌 Project Goal
 
 
 
-CropCare AI aims to demonstrate how \*\*computer vision, machine learning, weather data, and practical agricultural recommendations\*\* can be combined into a usable decision-support application.
+CropCare AI demonstrates how \*\*computer vision, machine learning, weather data, and practical agricultural recommendations\*\* can be combined into a usable agricultural decision-support application.
 
 
 
@@ -702,7 +742,5 @@ The project focuses not only on model prediction, but also on communicating \*\*
 
 
 
-\### Built with 🌱, AI, and a focus on practical agriculture.
-
-
+\### 🌱 Built with AI, machine learning, and a focus on practical agriculture.
 
